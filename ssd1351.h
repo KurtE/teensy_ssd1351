@@ -15,6 +15,12 @@ Written by Limor Fried/Ladyada for Adafruit Industries.
 MIT license, all text above must be included in any redistribution
 ****************************************************/
 
+#if !defined(TEENSYDUINO) || !defined(__arm__)
+#error "Sorry, this optimized library only works on 32 bit Teensy.  Use Adafruit_SSD1351 for others."
+#elif defined(__MKL26Z64__)
+#error "Sorry, this optimized library doesn't work with Teensy LC.  Use Adafruit_SSD1351."
+#endif
+
 #pragma once
 #include <Arduino.h>
 #include <array>
